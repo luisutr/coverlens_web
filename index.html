@@ -1,0 +1,33 @@
+<!doctype html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="description"
+      content="CoverLens — Explora el catálogo de videojuegos y gestiona tu colección con la app móvil."
+    />
+    <meta property="og:title" content="CoverLens" />
+    <meta
+      property="og:description"
+      content="Catálogo de videojuegos con metadatos, portadas y valor de mercado."
+    />
+    <!-- CSP upgrade-insecure-requests solo en producción (cabeceras del VPS).
+         En dev/LAN por HTTP rompe la carga de JS y deja pantalla en blanco en el móvil. -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Orbitron:wght@900&family=Inter:wght@400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <title>CoverLens</title>
+  </head>
+  <body>
+    <div id="root">
+      <p style="margin:0;padding:24px;font-family:system-ui,sans-serif;color:#fff;background:#000">
+        Cargando CoverLens…
+      </p>
+    </div>
+    <script type="module" src="/src/main.tsx"></script>
+  </body>
+</html>

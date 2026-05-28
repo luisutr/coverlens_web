@@ -1,0 +1,47 @@
+﻿.bar {
+  display: flex;
+  flex-wrap: nowrap;
+  gap: 6px;
+  align-items: center;
+  padding: 8px 10px;
+  background: rgba(0, 0, 0, 0.88);
+  border-bottom: 1px solid var(--border);
+  overflow-x: auto;
+}
+
+.chip {
+  font-size: 10px;
+  font-weight: 600;
+  padding: 5px 10px;
+  border-radius: 999px;
+  border: 1px solid var(--border-card);
+  background: var(--surface-card);
+  color: var(--text-dim);
+  white-space: nowrap;
+}
+
+.chip:hover {
+  border-color: var(--primary);
+  color: var(--text);
+}
+
+.chipActive {
+  border-color: var(--primary);
+  color: var(--primary);
+  background: rgba(0, 127, 255, 0.12);
+}
+
+.sortPill {
+  font-size: 10px;
+  font-weight: 600;
+  padding: 5px 10px;
+  border-radius: 999px;
+  border: 1px solid var(--border-card);
+  background: var(--surface);
+  color: var(--text);
+  white-space: nowrap;
+}
+
+.sortPill:hover {
+  border-color: var(--primary);
+}

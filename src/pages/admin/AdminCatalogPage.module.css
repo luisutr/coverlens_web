@@ -1,0 +1,94 @@
+﻿.page {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+.adminBar {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 8px 12px;
+  background: rgba(255, 120, 0, 0.08);
+  border-bottom: 1px solid rgba(255, 120, 0, 0.25);
+  flex-shrink: 0;
+}
+
+.adminLink {
+  font-size: 12px;
+  font-weight: 600;
+  color: var(--primary);
+}
+
+.adminBadge {
+  font-size: 10px;
+  font-weight: 700;
+  padding: 3px 8px;
+  border-radius: 999px;
+  background: rgba(255, 120, 0, 0.15);
+  color: #ffb347;
+  border: 1px solid rgba(255, 120, 0, 0.35);
+}
+
+.rebuildBtn {
+  margin-left: auto;
+  font-size: 11px;
+  font-weight: 600;
+  padding: 6px 10px;
+  border-radius: 8px;
+  border: 1px solid var(--border-card);
+  background: var(--surface-card);
+  color: var(--text);
+}
+
+.rebuildBtn:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
+.gridArea {
+  display: flex;
+  flex-direction: column;
+}
+
+.hint,
+.status {
+  margin: 0;
+  padding: 8px 12px;
+  font-size: 11px;
+  color: var(--text-dim);
+  background: rgba(0, 127, 255, 0.08);
+  border-bottom: 1px solid var(--border);
+}
+
+.error {
+  flex: 1;
+  padding: 32px 16px;
+  text-align: center;
+  color: var(--danger);
+}
+
+.error button {
+  margin-top: 12px;
+  padding: 8px 16px;
+  border-radius: 8px;
+  background: var(--surface-card);
+  border: 1px solid var(--border-card);
+  color: var(--text);
+}
+
+@media (max-width: 640px) {
+  .adminBar {
+    gap: 6px;
+    padding: 6px 10px;
+  }
+
+  .adminBadge {
+    display: none;
+  }
+
+  .rebuildBtn {
+    padding: 5px 8px;
+    font-size: 10px;
+  }
+}

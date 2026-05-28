@@ -1,0 +1,59 @@
+.bar {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  align-items: center;
+  padding: 10px 16px;
+  background: rgba(0, 0, 0, 0.88);
+  border-bottom: 1px solid var(--border);
+  position: sticky;
+  top: 88px;
+  z-index: 19;
+  flex-shrink: 0;
+}
+
+.chip {
+  font-size: 11px;
+  font-weight: 600;
+  padding: 6px 12px;
+  border-radius: 999px;
+  border: 1px solid var(--border-card);
+  background: var(--surface-card);
+  color: var(--text-dim);
+}
+
+.chip:hover {
+  border-color: var(--primary);
+  color: var(--text);
+}
+
+.chipActive {
+  border-color: var(--primary);
+  color: var(--primary);
+  background: rgba(0, 127, 255, 0.12);
+}
+
+.sortPill {
+  margin-left: auto;
+  font-size: 11px;
+  font-weight: 600;
+  padding: 6px 12px;
+  border-radius: 999px;
+  border: 1px solid var(--border-card);
+  background: var(--surface);
+  color: var(--text);
+}
+
+.sortPill:hover {
+  border-color: var(--primary);
+}
+
+@media (max-width: 640px) {
+  .bar {
+    top: 92px;
+  }
+
+  .sortPill {
+    margin-left: 0;
+  }
+}

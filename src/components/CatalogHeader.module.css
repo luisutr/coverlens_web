@@ -1,0 +1,98 @@
+﻿.header {
+  z-index: 20;
+  background: rgba(0, 0, 0, 0.92);
+  backdrop-filter: blur(8px);
+  border-bottom: 1px solid var(--border);
+  padding: 12px 16px 14px;
+  flex-shrink: 0;
+}
+
+.sticky {
+  position: sticky;
+  top: 0;
+}
+
+.static {
+  position: static;
+}
+
+.topRow {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  margin-bottom: 12px;
+}
+
+.brand {
+  font-family: var(--font-brand);
+  font-size: 18px;
+  font-weight: 900;
+  letter-spacing: 0.04em;
+  color: var(--primary);
+}
+
+.badge {
+  font-size: 11px;
+  font-weight: 600;
+  color: var(--text-dim);
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 999px;
+  padding: 4px 10px;
+  white-space: nowrap;
+}
+
+.searchWrap {
+  display: block;
+}
+
+.search {
+  width: 100%;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  color: var(--text);
+  padding: 10px 14px;
+  outline: none;
+}
+
+.search:focus {
+  border-color: var(--primary);
+}
+
+.search::placeholder {
+  color: #666;
+}
+
+.compact {
+  padding: 8px 12px 10px;
+}
+
+.compact .topRow {
+  margin-bottom: 8px;
+}
+
+.compact .brand {
+  font-size: 16px;
+}
+
+.compact .search {
+  padding: 8px 12px;
+}
+
+@media (max-width: 640px) {
+  .compact {
+    padding: 6px 10px 8px;
+  }
+
+  .compact .topRow {
+    margin-bottom: 6px;
+    gap: 8px;
+  }
+
+  .compact .badge {
+    font-size: 10px;
+    padding: 3px 8px;
+  }
+}

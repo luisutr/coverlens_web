@@ -1,0 +1,47 @@
+.wrap {
+  padding: 16px;
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(130px, 1fr));
+  gap: 16px;
+  padding: 16px;
+  max-width: 1600px;
+  width: 100%;
+  margin: 0 auto;
+  box-sizing: border-box;
+}
+
+.skeleton {
+  aspect-ratio: 90 / 128;
+  background: linear-gradient(90deg, #111 0%, #1a1a1a 50%, #111 100%);
+  background-size: 200% 100%;
+  animation: shimmer 1.2s infinite;
+  border-radius: 10px;
+  min-height: 180px;
+}
+
+.loadingHint {
+  text-align: center;
+  color: var(--text-dim);
+  font-size: 13px;
+  padding: 8px 16px 16px;
+  margin: 0;
+}
+
+@keyframes shimmer {
+  0% {
+    background-position: 200% 0;
+  }
+  100% {
+    background-position: -200% 0;
+  }
+}
+
+.empty {
+  flex: 1;
+  padding: 48px 24px;
+  text-align: center;
+  color: var(--text-dim);
+}
