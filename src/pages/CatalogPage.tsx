@@ -50,7 +50,7 @@ export default function CatalogPage() {
 
   useEffect(() => {
     scrollRef.current?.scrollTo({ top: 0, behavior: 'smooth' });
-  }, [page, filters.q, filters.platform, filters.sort, filters.castilianText, filters.castilianVoice]);
+  }, [page, filters.q, filters.platform, filters.sort, filters.castilianText, filters.castilianVoice, filters.showDigital]);
 
   const platformLabel = useMemo(() => {
     if (!filters.platform) return 'Todas las plataformas';
@@ -78,6 +78,9 @@ export default function CatalogPage() {
         }
         onToggleCastilianVoice={() =>
           setFilters({ castilianVoice: !filters.castilianVoice })
+        }
+        onToggleShowDigital={() =>
+          setFilters({ showDigital: !filters.showDigital })
         }
       />
 

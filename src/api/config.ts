@@ -17,3 +17,31 @@ export function absoluteCoverUrl(coverPath: string | null | undefined): string |
   }
   return apiUrl(p.startsWith('/') ? p : `/${p}`);
 }
+
+/** Versión estable para ?v= (mtime ms, ISO, fecha). */
+export function coverCacheVersion(version?: string | number | null): string {
+  if (version == null || version === '') return '';
+  if (typeof version === 'number' && Number.isFinite(version)) {
+    return String(Math.floor(version));
+  }
+  const s = String(version).trim();
+  if (/^\d{10,}$/.test(s)) return s;
+  const digits = s.replace(/\D/g, '');
+  return digits || s;
+}
+
+/** URL de portada con cache-bust; tras subir manual usa `Date.now()` como version. */
+export function coverDisplayUrl(
+  coverPath: string | null | undefined,
+  version?: string | number | null,
+): string | null {
+  const base = absoluteCoverUrl(coverPath);
+  if (!base) return null;
+  const v =
+    typeof version === 'number'
+      ? String(version)
+      : coverCacheVersion(version ?? null);
+  if (!v) return base;
+  const sep = base.includes('?') ? '&' : '?';
+  return `${base}${sep}v=${encodeURIComponent(v)}`;
+}

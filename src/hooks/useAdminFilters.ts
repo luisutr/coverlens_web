@@ -35,6 +35,8 @@ export function useAdminFilters() {
       missingDescription: parseBool(params.get('missingDescription')),
       missingBarcode: parseBool(params.get('missingBarcode')),
       missingPublisher: parseBool(params.get('missingPublisher')),
+      physicalOnly: parseBool(params.get('physicalOnly')),
+      digitalOnly: parseBool(params.get('digitalOnly')),
     }),
     [params],
   );
@@ -66,6 +68,12 @@ export function useAdminFilters() {
 
       if (merged.missingPublisher) next.set('missingPublisher', '1');
       else next.delete('missingPublisher');
+
+      if (merged.physicalOnly) next.set('physicalOnly', '1');
+      else next.delete('physicalOnly');
+
+      if (merged.digitalOnly) next.set('digitalOnly', '1');
+      else next.delete('digitalOnly');
 
       next.delete('page');
       return next;

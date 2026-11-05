@@ -3,6 +3,7 @@ import type { BrowseResponse, CatalogFilters, GameDetail, PlatformsManifest } fr
 
 async function fetchJson<T>(url: string): Promise<T> {
   const res = await fetch(url, {
+    cache: 'no-store',
     headers: { Accept: 'application/json' },
   });
   if (!res.ok) {
@@ -28,6 +29,8 @@ export async function fetchBrowse(
   if (filters.platform) params.set('platform', filters.platform);
   if (filters.castilianText) params.set('castilianText', '1');
   if (filters.castilianVoice) params.set('castilianVoice', '1');
+  // Por defecto la API oculta solo-digitales; al activar el filtro mostramos todo.
+  if (filters.showDigital) params.set('physicalFormat', 'all');
   return fetchJson<BrowseResponse>(apiUrl(`/api/browse.php?${params}`));
 }
 

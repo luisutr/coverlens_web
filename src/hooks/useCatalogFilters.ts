@@ -28,6 +28,7 @@ export function useCatalogFilters() {
       sort: parseSort(params.get('sort')),
       castilianText: params.get('castilianText') === '1',
       castilianVoice: params.get('castilianVoice') === '1',
+      showDigital: params.get('showDigital') === '1',
     }),
     [params],
   );
@@ -53,6 +54,9 @@ export function useCatalogFilters() {
 
       if (merged.castilianVoice) next.set('castilianVoice', '1');
       else next.delete('castilianVoice');
+
+      if (merged.showDigital) next.set('showDigital', '1');
+      else next.delete('showDigital');
 
       next.delete('page');
       return next;

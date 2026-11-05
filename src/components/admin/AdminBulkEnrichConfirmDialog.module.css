@@ -1,0 +1,89 @@
+.backdrop {
+  position: fixed;
+  inset: 0;
+  z-index: 1000;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 16px;
+  background: rgba(0, 0, 0, 0.65);
+}
+
+.dialog {
+  width: min(420px, 100%);
+  padding: 20px;
+  border-radius: 12px;
+  border: 1px solid rgba(255, 120, 0, 0.35);
+  background: var(--surface-card, #1e1e1e);
+  box-shadow: 0 12px 40px rgba(0, 0, 0, 0.45);
+}
+
+.title {
+  margin: 0 0 10px;
+  font-size: 16px;
+  font-weight: 700;
+  color: var(--text, #fff);
+}
+
+.note {
+  margin: 0 0 12px;
+  font-size: 13px;
+  line-height: 1.45;
+  color: var(--text-dim, #aaa);
+}
+
+.list {
+  margin: 0 0 12px;
+  padding-left: 18px;
+  font-size: 12px;
+  color: var(--text, #eee);
+  max-height: 120px;
+  overflow-y: auto;
+}
+
+.more {
+  color: var(--text-dim, #888);
+  font-style: italic;
+}
+
+.progress {
+  margin: 0 0 14px;
+  padding: 8px 10px;
+  font-size: 11px;
+  font-weight: 600;
+  border-radius: 8px;
+  background: rgba(255, 120, 0, 0.12);
+  color: #ffb347;
+}
+
+.actions {
+  display: flex;
+  justify-content: flex-end;
+  gap: 8px;
+}
+
+.cancelBtn,
+.primaryBtn {
+  font-size: 12px;
+  font-weight: 600;
+  padding: 8px 14px;
+  border-radius: 8px;
+  border: 1px solid var(--border-card, #333);
+}
+
+.cancelBtn {
+  background: transparent;
+  color: var(--text-dim, #aaa);
+}
+
+.primaryBtn {
+  background: var(--primary, #ff7800);
+  color: #fff;
+  border-color: var(--primary, #ff7800);
+}
+
+.primaryBtn:disabled,
+.cancelBtn:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}

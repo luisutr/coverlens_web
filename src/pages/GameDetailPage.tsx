@@ -1,9 +1,10 @@
 import { useEffect, useState } from 'react';
 import { Link, useParams } from 'react-router-dom';
-import { absoluteCoverUrl } from '../api/config';
+import { coverDisplayUrl } from '../api/config';
 import { fetchGameDetail } from '../api/catalogApi';
 import { useCatalogFilters } from '../hooks/useCatalogFilters';
 import { formatLanguages, formatMoneyEur } from '../utils/format';
+import { formatLocalizationText, formatLocalizationVoice } from '../utils/localization';
 import type { GameDetail } from '../types/catalog';
 import styles from './GameDetailPage.module.css';
 
@@ -13,6 +14,8 @@ export default function GameDetailPage() {
   const [game, setGame] = useState<GameDetail | null>(null);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState<string | null>(null);
+
+  const [imgError, setImgError] = useState(false);
 
   useEffect(() => {
     if (!platformSlug || !slug) return;
@@ -30,6 +33,14 @@ export default function GameDetailPage() {
       })
       .finally(() => setLoading(false));
   }, [platformSlug, slug]);
+
+  const coverUrl = game 
+    ? coverDisplayUrl(game.coverPath, game.coverUpdatedAt ?? game.updatedAt)
+    : null;
+
+  useEffect(() => {
+    setImgError(false);
+  }, [coverUrl]);
 
   if (loading) {
     return (
@@ -50,14 +61,13 @@ export default function GameDetailPage() {
     );
   }
 
-  const coverUrl = absoluteCoverUrl(game.coverPath);
   const valueLabel = formatMoneyEur(game.marketValue?.EUR);
   const textLangs =
     formatLanguages(game.textLanguages) ??
-    (game.localization?.castilian?.text ? 'es (texto)' : null);
+    formatLocalizationText(game.localization);
   const voiceLangs =
     formatLanguages(game.voiceLanguages) ??
-    (game.localization?.castilian?.voices ? 'es (voz)' : null);
+    formatLocalizationVoice(game.localization);
 
   return (
     <div className={styles.page}>
@@ -69,8 +79,13 @@ export default function GameDetailPage() {
 
       <article className={styles.content}>
         <div className={styles.coverCol}>
-          {coverUrl ? (
-            <img src={coverUrl} alt="" className={styles.cover} />
+          {coverUrl && !imgError ? (
+            <img
+              src={coverUrl}
+              alt=""
+              className={styles.cover}
+              onError={() => setImgError(true)}
+            />
           ) : (
             <div className={styles.coverPlaceholder}>SIN CARÁTULA</div>
           )}

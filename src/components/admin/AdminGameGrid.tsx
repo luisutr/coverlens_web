@@ -5,9 +5,26 @@ import styles from './AdminGameGrid.module.css';
 type AdminGameGridProps = {
   items: AdminBrowseGame[];
   loading: boolean;
+  quickCoverMode?: boolean;
+  bulkDeleteMode?: boolean;
+  bulkSelectMode?: boolean;
+  selectedKeys?: Set<string>;
+  onToggleSelect?: (index: number, shiftKey: boolean) => void;
+  onCoverUpdated?: (game: AdminBrowseGame, coverUrl: string) => void;
+  onQuickCoverMessage?: (message: string, isError?: boolean) => void;
 };
 
-export default function AdminGameGrid({ items, loading }: AdminGameGridProps) {
+export default function AdminGameGrid({
+  items,
+  loading,
+  quickCoverMode = false,
+  bulkDeleteMode = false,
+  bulkSelectMode = false,
+  selectedKeys,
+  onToggleSelect,
+  onCoverUpdated,
+  onQuickCoverMessage,
+}: AdminGameGridProps) {
   if (loading && items.length === 0) {
     return (
       <div className={styles.wrap}>
@@ -31,9 +48,23 @@ export default function AdminGameGrid({ items, loading }: AdminGameGridProps) {
 
   return (
     <div className={styles.grid} aria-busy={loading}>
-      {items.map((game) => (
-        <AdminGameCard key={`${game.platformSlug}-${game.slug}`} game={game} />
-      ))}
+      {items.map((game, index) => {
+        const key = `${game.platformSlug}/${game.slug}`;
+        return (
+          <AdminGameCard
+            key={key}
+            game={game}
+            index={index}
+            quickCoverMode={quickCoverMode}
+            bulkDeleteMode={bulkDeleteMode}
+            bulkSelectMode={bulkSelectMode}
+            selected={selectedKeys?.has(key) ?? false}
+            onToggleSelect={onToggleSelect}
+            onCoverUpdated={onCoverUpdated}
+            onQuickCoverMessage={onQuickCoverMessage}
+          />
+        );
+      })}
     </div>
   );
 }

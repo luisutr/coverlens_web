@@ -9,6 +9,7 @@ type FilterBarProps = {
   onSortClick: () => void;
   onToggleCastilianText: () => void;
   onToggleCastilianVoice: () => void;
+  onToggleShowDigital: () => void;
 };
 
 export default function FilterBar({
@@ -18,6 +19,7 @@ export default function FilterBar({
   onSortClick,
   onToggleCastilianText,
   onToggleCastilianVoice,
+  onToggleShowDigital,
 }: FilterBarProps) {
   const sortLabel = SORT_OPTIONS.find((o) => o.key === filters.sort)?.label ?? 'Título';
 
@@ -39,6 +41,14 @@ export default function FilterBar({
         onClick={onToggleCastilianVoice}
       >
         ES voz
+      </button>
+      <button
+        type="button"
+        className={`${styles.chip} ${filters.showDigital ? styles.chipActive : ''}`}
+        onClick={onToggleShowDigital}
+        title="Incluir juegos exclusivamente digitales"
+      >
+        Digitales
       </button>
       <button type="button" className={styles.sortPill} onClick={onSortClick}>
         {sortLabel} ▾

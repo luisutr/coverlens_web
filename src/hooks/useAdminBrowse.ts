@@ -1,6 +1,6 @@
 import { useCallback, useEffect, useRef, useState } from 'react';
 import { fetchAdminBrowse } from '../api/adminApi';
-import type { AdminBrowseGame, AdminFilters } from '../types/admin';
+import type { AdminBrowseGame, AdminDeleteGameRef, AdminFilters } from '../types/admin';
 
 export const ADMIN_PAGE_SIZE = 48;
 
@@ -69,5 +69,34 @@ export function useAdminBrowse(filters: AdminFilters, page: number) {
     void loadPage(safePage);
   }, [loadPage, safePage]);
 
-  return { ...state, retry };
+  const patchGame = useCallback(
+    (platformSlug: string, slug: string, patch: Partial<AdminBrowseGame>) => {
+      setState((prev) => ({
+        ...prev,
+        items: prev.items.map((game) =>
+          game.platformSlug === platformSlug && game.slug === slug
+            ? { ...game, ...patch }
+            : game,
+        ),
+      }));
+    },
+    [],
+  );
+
+  const removeGames = useCallback((refs: AdminDeleteGameRef[]) => {
+    const keys = new Set(refs.map((g) => `${g.platformSlug}/${g.slug}`));
+    setState((prev) => {
+      const items = prev.items.filter(
+        (game) => !keys.has(`${game.platformSlug}/${game.slug}`),
+      );
+      const removed = prev.items.length - items.length;
+      return {
+        ...prev,
+        items,
+        total: Math.max(0, prev.total - removed),
+      };
+    });
+  }, []);
+
+  return { ...state, retry, patchGame, removeGames };
 }

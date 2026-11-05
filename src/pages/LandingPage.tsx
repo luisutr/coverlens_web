@@ -16,9 +16,6 @@ export default function LandingPage() {
           <Link to="/catalogo" className={styles.primaryBtn}>
             Explorar catálogo
           </Link>
-          <Link to="/admin" className={styles.secondaryBtn}>
-            Editor local
-          </Link>
           <a
             href="#"
             className={styles.secondaryBtn}

@@ -1,0 +1,100 @@
+.backdrop {
+  position: fixed;
+  inset: 0;
+  z-index: 1000;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 16px;
+  background: rgba(0, 0, 0, 0.65);
+}
+
+.dialog {
+  width: min(440px, 100%);
+  padding: 20px;
+  border-radius: 12px;
+  border: 1px solid rgba(0, 127, 255, 0.35);
+  background: var(--surface-card, #1e1e1e);
+  box-shadow: 0 12px 40px rgba(0, 0, 0, 0.45);
+}
+
+.title {
+  margin: 0 0 10px;
+  font-size: 16px;
+  font-weight: 700;
+  color: var(--text, #fff);
+}
+
+.list {
+  margin: 0 0 14px;
+  padding-left: 18px;
+  font-size: 12px;
+  color: var(--text, #eee);
+  max-height: 100px;
+  overflow-y: auto;
+}
+
+.more {
+  color: var(--text-dim, #888);
+  font-style: italic;
+}
+
+.options {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  margin-bottom: 14px;
+}
+
+.optionBtn {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 2px;
+  padding: 10px 12px;
+  border-radius: 8px;
+  border: 1px solid rgba(0, 127, 255, 0.35);
+  background: rgba(0, 127, 255, 0.08);
+  color: var(--text, #fff);
+  cursor: pointer;
+  text-align: left;
+}
+
+.optionBtn:hover:not(:disabled) {
+  background: rgba(0, 127, 255, 0.16);
+}
+
+.optionBtn:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
+.optionLabel {
+  font-size: 13px;
+  font-weight: 700;
+}
+
+.optionHint {
+  font-size: 11px;
+  color: var(--text-dim, #aaa);
+}
+
+.actions {
+  display: flex;
+  justify-content: flex-end;
+}
+
+.cancelBtn {
+  font-size: 12px;
+  font-weight: 600;
+  padding: 8px 14px;
+  border-radius: 8px;
+  border: 1px solid var(--border-card, #333);
+  background: transparent;
+  color: var(--text-dim, #aaa);
+}
+
+.cancelBtn:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}

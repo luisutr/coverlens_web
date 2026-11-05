@@ -51,7 +51,7 @@ npm run dev        # terminal 2 — Vite :5173
 # Editor local (completar fichas a mano)
 # http://localhost:5173/admin
 # Movil en Wi-Fi: npm run dev:api:lan + npm run dev:lan  ->  http://192.168.x.x:5173/admin
-# Ver docs/ADMIN_LOCAL.md
+# Ver docs/ADMIN.md
 
 # Publicar ediciones manuales al VPS
 npm run deploy:local-edits

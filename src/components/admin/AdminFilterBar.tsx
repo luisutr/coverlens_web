@@ -9,7 +9,7 @@ type AdminFilterBarProps = {
   onSortClick: () => void;
   onToggle: (key: keyof Pick<
     AdminFilters,
-    'missingCover' | 'missingDescription' | 'missingBarcode' | 'missingPublisher'
+    'missingCover' | 'missingDescription' | 'missingBarcode' | 'missingPublisher' | 'physicalOnly' | 'digitalOnly'
   >) => void;
 };
 
@@ -54,6 +54,20 @@ export default function AdminFilterBar({
         onClick={() => onToggle('missingPublisher')}
       >
         Sin editor
+      </button>
+      <button
+        type="button"
+        className={`${styles.chip} ${filters.physicalOnly ? styles.chipActive : ''}`}
+        onClick={() => onToggle('physicalOnly')}
+      >
+        Físico
+      </button>
+      <button
+        type="button"
+        className={`${styles.chip} ${filters.digitalOnly ? styles.chipActive : ''}`}
+        onClick={() => onToggle('digitalOnly')}
+      >
+        Digital
       </button>
       <button type="button" className={styles.sortPill} onClick={onSortClick}>
         {sortLabel} ▾

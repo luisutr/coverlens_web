@@ -135,6 +135,52 @@
   color: var(--primary);
 }
 
+.enrichBox {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  padding-top: 4px;
+  border-top: 1px solid var(--border);
+}
+
+.enrichBtn {
+  width: 100%;
+  font-size: 12px;
+  font-weight: 600;
+  padding: 8px 14px;
+  border-radius: 8px;
+  border: 1px solid var(--primary);
+  background: rgba(0, 127, 255, 0.12);
+  color: var(--primary);
+}
+
+.enrichBtn:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
+.enrichCheck {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 11px;
+  color: var(--text-dim);
+  cursor: pointer;
+}
+
+.enrichHint,
+.enrichMeta {
+  margin: 0;
+  font-size: 10px;
+  line-height: 1.4;
+  color: var(--text-dim);
+}
+
+.enrichWarn {
+  color: #ffb347;
+}
+
 .form {
   display: flex;
   flex-direction: column;
@@ -154,7 +200,8 @@
 }
 
 .field input,
-.field textarea {
+.field textarea,
+.field select {
   width: 100%;
   padding: 10px 12px;
   border-radius: 8px;
@@ -162,6 +209,28 @@
   background: var(--surface-card);
   color: var(--text);
   font: inherit;
+}
+
+.fieldHint {
+  font-size: 11px;
+  color: #ffb347;
+  font-weight: 600;
+}
+
+.slugBtn {
+  align-self: flex-start;
+  margin-top: 4px;
+  padding: 2px 8px;
+  font-size: 11px;
+  background: transparent;
+  border: 1px solid var(--border, #444);
+  border-radius: 4px;
+  color: var(--text-muted, #aaa);
+  cursor: pointer;
+}
+.slugBtn:hover {
+  background: var(--hover, #333);
+  color: var(--text, #fff);
 }
 
 .field input:disabled {
@@ -190,4 +259,40 @@
   align-items: center;
   gap: 8px;
   font-size: 13px;
+}
+
+.dangerZone {
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 0 16px 48px;
+  border-top: 1px solid rgba(198, 40, 40, 0.25);
+}
+
+.dangerTitle {
+  margin: 24px 0 8px;
+  font-size: 14px;
+  font-weight: 700;
+  color: #ffb4b4;
+}
+
+.dangerText {
+  margin: 0 0 12px;
+  font-size: 12px;
+  color: var(--text-dim);
+}
+
+.dangerBtn {
+  font-size: 12px;
+  font-weight: 700;
+  padding: 8px 14px;
+  border-radius: 8px;
+  border: 1px solid #c62828;
+  background: transparent;
+  color: #ffb4b4;
+  cursor: pointer;
+}
+
+.dangerBtn:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
 }

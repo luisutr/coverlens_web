@@ -9,8 +9,12 @@
     "preview:lan": "npm run build && vite preview --host",
     "firewall:lan": "powershell -ExecutionPolicy Bypass -File scripts/open-firewall-lan.ps1",
     "dev:api": "powershell -ExecutionPolicy Bypass -File scripts/dev-api.ps1",
+    "dev:api:mac": "bash scripts/dev-api.sh",
     "dev:api:lan": "powershell -ExecutionPolicy Bypass -File scripts/dev-api.ps1 -Lan",
     "deploy:local-edits": "powershell -ExecutionPolicy Bypass -File scripts/deploy-local-edits.ps1",
+    "deploy:local-edits:mac": "bash scripts/deploy-local-edits.sh",
+    "deploy:web": "npm run build && python3 scripts/deploy-web-vps.py",
+    "deploy:prod": "bash ../coverlens_resource/scripts/deploy-prod.sh admin-web",
     "build": "tsc -b && vite build",
     "preview": "vite preview",
     "test": "vitest run"
@@ -28,5 +32,8 @@
     "typescript": "~5.8.3",
     "vite": "^6.3.5",
     "vitest": "^3.2.4"
+  },
+  "optionalDependencies": {
+    "@rollup/rollup-darwin-x64": "^4.60.4"
   }
 }

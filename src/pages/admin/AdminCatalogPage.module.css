@@ -30,8 +30,32 @@
   border: 1px solid rgba(255, 120, 0, 0.35);
 }
 
+.logoutBtn {
+  font-size: 11px;
+  font-weight: 600;
+  padding: 6px 10px;
+  border-radius: 8px;
+  border: 1px solid var(--border-card);
+  background: transparent;
+  color: var(--text-dim);
+}
+
+.newGameBtn {
+  font-size: 11px;
+  font-weight: 700;
+  padding: 6px 12px;
+  border-radius: 8px;
+  border: 1px solid rgba(40, 160, 120, 0.5);
+  background: rgba(40, 160, 120, 0.15);
+  color: #4ecba8;
+  cursor: pointer;
+  white-space: nowrap;
+}
+.newGameBtn:hover {
+  background: rgba(40, 160, 120, 0.28);
+}
+
 .rebuildBtn {
-  margin-left: auto;
   font-size: 11px;
   font-weight: 600;
   padding: 6px 10px;
@@ -44,6 +68,212 @@
 .rebuildBtn:disabled {
   opacity: 0.6;
   cursor: not-allowed;
+}
+
+.quickToggle {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  margin-left: auto;
+  font-size: 11px;
+  font-weight: 600;
+  color: var(--text);
+  cursor: pointer;
+  user-select: none;
+}
+
+.quickToggle input {
+  width: 16px;
+  height: 16px;
+  accent-color: var(--primary);
+}
+
+.bulkToggle {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 11px;
+  font-weight: 600;
+  color: var(--text);
+  cursor: pointer;
+  user-select: none;
+}
+
+.bulkToggle input {
+  width: 16px;
+  height: 16px;
+  accent-color: #c62828;
+}
+
+.bulkEnrichToggle {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 11px;
+  font-weight: 600;
+  color: var(--text);
+  cursor: pointer;
+  user-select: none;
+}
+
+.bulkEnrichToggle input {
+  width: 16px;
+  height: 16px;
+  accent-color: var(--primary);
+}
+
+.bulkEnrichHint {
+  margin: 0;
+  padding: 8px 12px;
+  font-size: 11px;
+  color: #ffb347;
+  background: rgba(255, 120, 0, 0.08);
+  border-bottom: 1px solid rgba(255, 120, 0, 0.25);
+}
+
+.bulkBarEnrich {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 10px;
+  padding: 8px 12px;
+  font-size: 12px;
+  font-weight: 600;
+  background: rgba(255, 120, 0, 0.1);
+  border-bottom: 1px solid rgba(255, 120, 0, 0.25);
+}
+
+.bulkEnrichBtn {
+  margin-left: auto;
+  font-size: 11px;
+  font-weight: 700;
+  padding: 6px 12px;
+  border-radius: 8px;
+  border: 1px solid var(--primary);
+  background: var(--primary);
+  color: #fff;
+  cursor: pointer;
+}
+
+.bulkEnrichBtn:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
+.bulkFormatToggle {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 11px;
+  font-weight: 600;
+  color: var(--text);
+  cursor: pointer;
+  user-select: none;
+}
+
+.bulkFormatToggle input {
+  width: 16px;
+  height: 16px;
+  accent-color: #007fff;
+}
+
+.bulkFormatHint {
+  margin: 0;
+  padding: 8px 12px;
+  font-size: 11px;
+  color: #7ec8ff;
+  background: rgba(0, 127, 255, 0.08);
+  border-bottom: 1px solid rgba(0, 127, 255, 0.25);
+}
+
+.bulkBarFormat {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 10px;
+  padding: 8px 12px;
+  font-size: 12px;
+  font-weight: 600;
+  background: rgba(0, 127, 255, 0.1);
+  border-bottom: 1px solid rgba(0, 127, 255, 0.25);
+}
+
+.bulkFormatBtn {
+  margin-left: auto;
+  font-size: 11px;
+  font-weight: 700;
+  padding: 6px 12px;
+  border-radius: 8px;
+  border: 1px solid #007fff;
+  background: #007fff;
+  color: #fff;
+  cursor: pointer;
+}
+
+.bulkFormatBtn:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
+.bulkHint {
+  margin: 0;
+  padding: 8px 12px;
+  font-size: 11px;
+  color: #ffb4b4;
+  background: rgba(198, 40, 40, 0.08);
+  border-bottom: 1px solid rgba(198, 40, 40, 0.2);
+}
+
+.bulkBar {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 10px;
+  padding: 8px 12px;
+  font-size: 12px;
+  font-weight: 600;
+  background: rgba(198, 40, 40, 0.1);
+  border-bottom: 1px solid rgba(198, 40, 40, 0.25);
+}
+
+.bulkLinkBtn {
+  font-size: 11px;
+  font-weight: 600;
+  padding: 0;
+  border: none;
+  background: none;
+  color: var(--primary);
+  cursor: pointer;
+}
+
+.bulkDeleteBtn {
+  margin-left: auto;
+  font-size: 11px;
+  font-weight: 700;
+  padding: 6px 12px;
+  border-radius: 8px;
+  border: 1px solid #c62828;
+  background: #c62828;
+  color: #fff;
+  cursor: pointer;
+}
+
+.quickCoverHint {
+  margin: 0;
+  padding: 8px 12px;
+  font-size: 11px;
+  color: var(--text-dim);
+  background: rgba(255, 120, 0, 0.1);
+  border-bottom: 1px solid rgba(255, 120, 0, 0.25);
+}
+
+.quickCoverError {
+  margin: 0;
+  padding: 8px 12px;
+  font-size: 11px;
+  color: #ff8a8a;
+  background: rgba(255, 80, 80, 0.12);
+  border-bottom: 1px solid rgba(255, 80, 80, 0.25);
 }
 
 .gridArea {
@@ -89,6 +319,10 @@
 
   .rebuildBtn {
     padding: 5px 8px;
+    font-size: 10px;
+  }
+
+  .quickToggle {
     font-size: 10px;
   }
 }
