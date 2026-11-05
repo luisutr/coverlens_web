@@ -3,3 +3,10 @@ dist
 *.local
 .DS_Store
 datos_vps/
+
+# Python / macOS
+__pycache__/
+*.pyc
+._*
+.DS_Store
+

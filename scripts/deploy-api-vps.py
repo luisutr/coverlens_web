@@ -7,7 +7,7 @@ import paramiko
 
 HOST = "195.110.59.186"
 USER = "root"
-PASSWORD = "***REMOVED***"
+PASSWORD = __import__("vps_creds").PASSWORD
 REMOTE_BASE = "/home/covers.cholloweb.es/public_html"
 
 RESOURCE = Path(__file__).resolve().parents[2] / "coverlens_resource"

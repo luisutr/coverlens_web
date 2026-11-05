@@ -8,7 +8,7 @@ import sys
 
 HOST = "195.110.59.186"
 USER = "root"
-PASSWORD = "***REMOVED***"
+PASSWORD = __import__("vps_creds").PASSWORD
 DOMAIN = "covers.cholloweb.es"
 VH_ROOT = f"/home/{DOMAIN}"
 SSL_DIR = f"{VH_ROOT}/ssl"

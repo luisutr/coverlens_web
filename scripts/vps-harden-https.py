@@ -4,7 +4,7 @@ import paramiko
 
 HOST = "195.110.59.186"
 USER = "root"
-PASSWORD = "***REMOVED***"
+PASSWORD = __import__("vps_creds").PASSWORD
 DOMAIN = "covers.cholloweb.es"
 VHOST_PATH = f"/usr/local/lsws/conf/vhosts/{DOMAIN}/vhost.conf"
 BROWSE_PHP = f"/home/{DOMAIN}/public_html/api/browse.php"

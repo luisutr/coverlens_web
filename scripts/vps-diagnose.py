@@ -4,7 +4,7 @@ import time
 
 c = paramiko.SSHClient()
 c.set_missing_host_key_policy(paramiko.AutoAddPolicy())
-c.connect("195.110.59.186", 22, "root", "***REMOVED***", timeout=30)
+c.connect("195.110.59.186", 22, "root", __import__("vps_creds").PASSWORD, timeout=30)
 
 cmds = [
     "ls -la /home/covers.cholloweb.es/public_html/index.html",
